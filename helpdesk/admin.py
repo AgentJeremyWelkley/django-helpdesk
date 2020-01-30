@@ -25,7 +25,7 @@ class TicketAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'assigned_to', 'queue',
                     'hidden_submitter_email', 'time_spent')
     date_hierarchy = 'created'
-    list_filter = ('queue', 'assigned_to', 'status')
+    list_filter = ('queue', 'status')
 
     def hidden_submitter_email(self, ticket):
         if ticket.submitter_email:
