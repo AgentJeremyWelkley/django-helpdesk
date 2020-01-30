@@ -1475,8 +1475,8 @@ def create_usersettings(sender, instance, created, **kwargs):
     If we end up with users with no UserSettings, then we get horrible
     'DoesNotExist: UserSettings matching query does not exist.' errors.
     """
-    if created:
-        UserSettings.objects.create(user=instance)
+    if helpdesk_settings.HELPDESK_ALLOW_NON_STAFF_PUBLIC_ACCESS or instance.is_staff:
+        UserSettings.objects.get_or_create(user=instance)
 
 
 models.signals.post_save.connect(create_usersettings, sender=settings.AUTH_USER_MODEL)

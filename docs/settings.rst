@@ -95,6 +95,10 @@ Options shown on public pages
 
 These options only change display of items on public-facing pages, not staff pages.
 
+- **HELPDESK_ALLOW_NON_STAFF_PUBLIC_ACCESS** Allow non-staff users to interact with public page? If set to ``False``, ``UserSettings`` will not be created for non-staff users by default.
+
+  **Default:** ``HELPDESK_ALLOW_NON_STAFF_PUBLIC_ACCESS = True``
+
 - **HELPDESK_VIEW_A_TICKET_PUBLIC** Show 'View a Ticket' section on public page?
 
   **Default:** ``HELPDESK_VIEW_A_TICKET_PUBLIC = True``

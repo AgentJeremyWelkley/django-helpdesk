@@ -21,19 +21,22 @@ def populate_usersettings(apps, schema_editor):
     This will only happen once (at install time, or at upgrade)
     when the UserSettings model doesn't already exist."""
 
-    _User = get_user_model()
-    User = apps.get_model(_User._meta.app_label, _User._meta.model_name)
+    # No longer needed since UserSettings are created dynamically as needed and when Users are created/updated.
+    pass
 
-    # Import historical version of models
-    UserSettings = apps.get_model("helpdesk", "UserSettings")
-
-    settings_pickled = pickle_settings(DEFAULT_USER_SETTINGS)
-
-    for u in User.objects.all():
-        try:
-            UserSettings.objects.get(user=u)
-        except UserSettings.DoesNotExist:
-            UserSettings.objects.create(user=u, settings_pickled=settings_pickled)
+    # _User = get_user_model()
+    # User = apps.get_model(_User._meta.app_label, _User._meta.model_name)
+    #
+    # # Import historical version of models
+    # UserSettings = apps.get_model("helpdesk", "UserSettings")
+    #
+    # settings_pickled = pickle_settings(DEFAULT_USER_SETTINGS)
+    #
+    # for u in User.objects.all():
+    #     try:
+    #         UserSettings.objects.get(user=u)
+    #     except UserSettings.DoesNotExist:
+    #         UserSettings.objects.create(user=u, settings_pickled=settings_pickled)
 
 
 noop = lambda *args, **kwargs: None

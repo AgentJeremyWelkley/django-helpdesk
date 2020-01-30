@@ -36,6 +36,7 @@ HELPDESK_ANON_ACCESS_RAISES_404 = getattr(settings,
                                           'HELPDESK_ANON_ACCESS_RAISES_404',
                                           False)
 
+
 # show knowledgebase links?
 HELPDESK_KB_ENABLED = getattr(settings, 'HELPDESK_KB_ENABLED', True)
 
@@ -72,6 +73,9 @@ HELPDESK_AUTO_SUBSCRIBE_ON_TICKET_RESPONSE = getattr(settings,
 ############################
 # options for public pages #
 ############################
+
+# allow non-staff users to interact with public page?
+HELPDESK_ALLOW_NON_STAFF_PUBLIC_ACCESS = getattr(settings, 'HELPDESK_ALLOW_NON_STAFF_PUBLIC_ACCESS', True)
 
 # show 'view a ticket' section on public page?
 HELPDESK_VIEW_A_TICKET_PUBLIC = getattr(settings, 'HELPDESK_VIEW_A_TICKET_PUBLIC', True)

@@ -8,6 +8,8 @@ from helpdesk import settings as helpdesk_settings
 
 class HelpdeskUser:
     def __init__(self, user):
+        from helpdesk.models import UserSettings
+        UserSettings.objects.get_or_create(user=user)
         self.user = user
 
     def get_queues(self):
